@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!136 &1086187845
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966286227177380845}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08559702
+  m_Height: 0.11218702
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.000000003725291, z: 0}
+--- !u!114 &1086187846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966286227177380845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9609a1a5e40343a428828233e3b7c640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &973323829266536391
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5889997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5889997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230615562, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5889997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230647338, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218435319230647338, guid: 362c51d10206ba648ad5633c86145cd6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Crystal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 362c51d10206ba648ad5633c86145cd6, type: 3}
+--- !u!1 &3966286227177380845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4218435319230647338, guid: 362c51d10206ba648ad5633c86145cd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 973323829266536391}
+  m_PrefabAsset: {fileID: 0}
