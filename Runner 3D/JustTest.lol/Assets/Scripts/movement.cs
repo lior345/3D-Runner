@@ -3,45 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class movement : MonoBehaviour
-{
-    private Rigidbody rb;
-    bool alive = true;
-    public GameObject replay;
+{    
+    
+    
     [SerializeField] float jumpForce;
-    bool isgrounded=true;
     [SerializeField] float RunSpeed;
+
+    bool alive = true;
+    bool isgrounded=true;
+
+    Rigidbody rb;
+
+    public GameObject replay;
     public Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (alive)
         {
             transform.Translate(0, 0, RunSpeed * Time.deltaTime);//forward
-            transform.position = new Vector3(Input.GetAxis("Horizontal"), transform.position.y, transform.position.z);//sideways          if >&< 1/-1 - tranformpostitionx+axis
-            /*
 
-            if (Input.touches.Length > 0) 
+            if(transform.position.x<1)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (Input.GetKeyDown(KeyCode.D))
                 {
-                    touchstartPos = new Vector2;
-                }
-                if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                {
-                    touchstartPos = new Vector2;
+                    transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
                 }
             }
-
-    */
-
-
-
-          if(Input.GetKeyDown(KeyCode.Space))
+            if (transform.position.x >-1)
+            {
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    transform.position = new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (isgrounded)
                 {
@@ -63,6 +63,5 @@ public class movement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isgrounded = true;
-
     }  
 }

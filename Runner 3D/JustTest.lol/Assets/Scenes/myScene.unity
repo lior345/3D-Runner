@@ -510,7 +510,7 @@ PrefabInstance:
     - target: {fileID: 1861393961037274946, guid: 9e67f7f4d3946ea41976d646f18d30d5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.505
+      value: -18.12
       objectReference: {fileID: 0}
     - target: {fileID: 1861393961037274946, guid: 9e67f7f4d3946ea41976d646f18d30d5,
         type: 3}
@@ -2946,9 +2946,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8dab1d53fa35744abb1fe3aba30846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replay: {fileID: 1785532}
   jumpForce: 5
   RunSpeed: 3
+  replay: {fileID: 1785532}
   anim: {fileID: 869959647}
 --- !u!111 &869959652
 Animation:
@@ -6441,8 +6441,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708936254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.887, y: -0, z: 38.36}
-  m_LocalScale: {x: 2.6395855, y: 1, z: 8.691676}
+  m_LocalPosition: {x: 1.887, y: 0, z: 31.755}
+  m_LocalScale: {x: 2.6395855, y: 1, z: 10.012811}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
