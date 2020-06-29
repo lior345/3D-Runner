@@ -9,9 +9,8 @@ public class endStage : MonoBehaviour
     public Animator anim;
     private void OnTriggerEnter(Collider other)
     {
-        playerScript.enabled = false;
+        Time.timeScale = 0;
         repalyText.gameObject.SetActive(true);
-        anim.enabled = false;
     }
 
 }

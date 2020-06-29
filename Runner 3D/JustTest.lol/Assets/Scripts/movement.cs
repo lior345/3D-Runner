@@ -8,9 +8,13 @@ public class movement : MonoBehaviour
     
     [SerializeField] float jumpForce;
     [SerializeField] float RunSpeed;
+    [SerializeField] Transform left;
+    [SerializeField] Transform right;
 
     bool alive = true;
     bool isgrounded=true;
+
+    Vector3 goalPosition;
 
     Rigidbody rb;
 
@@ -27,21 +31,26 @@ public class movement : MonoBehaviour
         {
             transform.Translate(0, 0, RunSpeed * Time.deltaTime);//forward
 
-            if(transform.position.x<1)
+            if (transform.position.x < 1)
             {
-                if (Input.GetKeyDown(KeyCode.D))
+
+                if (Input.GetKeyDown(KeyCode.D))//right
                 {
-                    transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
+                    goalPosition.x = transform.position.x+1;
+                    StartCoroutine(RightSlide());
                 }
             }
-            if (transform.position.x >-1)
+
+            if (transform.position.x > -1)//left
             {
                 if (Input.GetKeyDown(KeyCode.A))
                 {
-                    transform.position = new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
+                    goalPosition.x = transform.position.x-1;
+                    StartCoroutine(LeftSlide());
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+
+            if (Input.GetKeyDown(KeyCode.Space))//jump
             {
                 if (isgrounded)
                 {
@@ -64,4 +73,24 @@ public class movement : MonoBehaviour
     {
         isgrounded = true;
     }  
+
+
+    IEnumerator RightSlide()
+    {
+        while (transform.position.x < goalPosition.x)
+        {
+            transform.position = Vector3.Lerp(transform.position, right.position, 1);
+            yield return new WaitForSeconds(.0001f);
+            RightSlide();
+        }
+    }
+    IEnumerator LeftSlide()
+    {
+        while (transform.position.x > goalPosition.x)
+        {
+            transform.position = Vector3.Lerp(transform.position, left.position, 1);
+            yield return new WaitForSeconds(.0001f);
+            LeftSlide();
+        }
+    }
 }

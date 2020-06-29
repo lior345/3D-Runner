@@ -10,6 +10,7 @@ public class restart : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("myScene");
+            Time.timeScale = 1;
         }
     }
 }
