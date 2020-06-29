@@ -60,6 +60,7 @@ public class movement : MonoBehaviour
             }
         }
     }
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Obstacle"))
