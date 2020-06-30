@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1785533
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2965c174ec188478807c58ae3ad899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 869959654}
+  repalyText: {fileID: 1785532}
 --- !u!1 &21933334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,7 +2830,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "R" to Restart
+  m_Text: Tap to Start
 --- !u!222 &862216895
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2920,6 +2922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   RunSpeed: 3
+  alive: 1
   replay: {fileID: 1785532}
   anim: {fileID: 869959647}
   cameraTransform: {fileID: 246760037}

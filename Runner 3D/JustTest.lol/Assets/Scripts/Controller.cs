@@ -5,13 +5,14 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     private float nextLane;
-    private bool alive = true;
     private bool isgrounded = true;
     private Vector3 nextPos;
     private Rigidbody rb;
 
     [SerializeField] float jumpForce;
     [SerializeField] float RunSpeed;
+
+    public bool alive= true;
 
     public GameObject replay;//When failing- a replay option will appear
     public Animator anim;
