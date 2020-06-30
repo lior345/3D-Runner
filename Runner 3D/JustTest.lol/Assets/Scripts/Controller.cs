@@ -13,21 +13,22 @@ public class Controller : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float RunSpeed;
 
-    public GameObject replay;
+    public GameObject replay;//When failing- a replay option will appear
     public Animator anim;
+    public Transform cameraTransform;
 
     private void Start()
     {
-        Time.timeScale = 1;
-        nextLane=0;
+        nextLane=0;//starting in the middle
         rb = GetComponent<Rigidbody>();
     }
 private void Update()
     {
         if (alive)
         {
-            transform.Translate(0, 0, RunSpeed * Time.deltaTime);//forward
-
+            transform.Translate(0, 0, RunSpeed * Time.deltaTime);//forward movement
+            cameraTransform.position = new Vector3(0,3f,transform.position.z - 2.5f);//camera Movement
+            #region Movement Inputs
             if (Input.GetKeyDown(KeyCode.D))
             {
                 RightMove();
@@ -46,10 +47,11 @@ private void Update()
                     isgrounded = false;
                 }
             }
+            #endregion
         }
         else Time.timeScale = 0;
     }
-    private void LeftMove()
+    private void LeftMove()//Left Movement Check
     {
         nextLane--;
         if(nextLane==-2)
@@ -58,7 +60,7 @@ private void Update()
         }
         nextPos =new Vector3 (nextLane, transform.position.y, transform.position.z);
     }
-    private void RightMove()
+    private void RightMove()//Right Movement Check
     {
         nextLane++;
         if (nextLane ==2)
@@ -68,11 +70,11 @@ private void Update()
         nextPos = new Vector3(nextLane, transform.position.y, transform.position.z);
 
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)//ground check
     {
         isgrounded = true;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)//Obstacle check
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
