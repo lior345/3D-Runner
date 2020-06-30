@@ -28,16 +28,15 @@ private void Update()
         {
             transform.Translate(0, 0, RunSpeed * Time.deltaTime);//forward movement
             cameraTransform.position = new Vector3(0,3f,transform.position.z - 2.5f);//camera Movement
+            transform.position = Vector3.Lerp(transform.position, new Vector3(nextPos.x,transform.position.y,transform.position.z), 5*Time.deltaTime);//gradual side movement
             #region Movement Inputs
             if (Input.GetKeyDown(KeyCode.D))
             {
                 RightMove();
-                transform.position = Vector3.Lerp(transform.position, nextPos, 30);
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
                 LeftMove();
-                transform.position = Vector3.Lerp(transform.position, nextPos, 30);
             }
             if (Input.GetKeyDown(KeyCode.Space))//jump
             {
