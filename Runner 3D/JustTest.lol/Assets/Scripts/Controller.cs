@@ -16,6 +16,7 @@ public class Controller : MonoBehaviour
     public GameObject replay;//When failing- a replay option will appear
     public Animator anim;
     public Transform cameraTransform;
+    public TouchManager touchManager;
 
     private void Start()
     {
@@ -30,15 +31,15 @@ private void Update()
             cameraTransform.position = new Vector3(0,3f,transform.position.z - 2.5f);//camera Movement
             transform.position = Vector3.Lerp(transform.position, new Vector3(nextPos.x,transform.position.y,transform.position.z), 5*Time.deltaTime);//gradual side movement
             #region Movement Inputs
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D)||touchManager.swipeRight)
             {
                 RightMove();
             }
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) || touchManager.swipeLeft)
             {
                 LeftMove();
             }
-            if (Input.GetKeyDown(KeyCode.Space))//jump
+            if (Input.GetKeyDown(KeyCode.Space) || touchManager.swipeUp)//jump
             {
                 if (isgrounded)
                 {
