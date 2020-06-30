@@ -9,7 +9,7 @@ public class SwipeDetector : MonoBehaviour
     [SerializeField] bool detectSwipeOnlyAfterRelease = false;
     [SerializeField] float minDistanceForSwipe = 20f;
 
- //   public static event Action<SwipeData> OnSwipe = delegate { };
+  public static event Action<SwipeData> OnSwipe = delegate { };
 
     private void Update()
     {
@@ -42,12 +42,12 @@ public class SwipeDetector : MonoBehaviour
             if (IsVerticalSwipe())
             {
                 var direction = fingerDownPosition.y - fingerUpPosition.y > 0 ? SwipeDirection.Up : SwipeDirection.Down;
-               // SendSwipe(direction);
+                SendSwipe(direction);
             }
             else
             {
                 var direction = fingerDownPosition.x - fingerUpPosition.x > 0 ? SwipeDirection.Right : SwipeDirection.Left;
-              //  SendSwipe(direction);
+                SendSwipe(direction);
             }
             fingerUpPosition = fingerDownPosition;
         }
@@ -72,7 +72,7 @@ public class SwipeDetector : MonoBehaviour
     {
         return Mathf.Abs(fingerDownPosition.x - fingerUpPosition.x);
     }
-    /*
+    
     private void SendSwipe(SwipeDirection direction)
     {
         SwipeData swipeData = new SwipeData()
@@ -82,16 +82,16 @@ public class SwipeDetector : MonoBehaviour
             EndPosition = fingerUpPosition
         };
         OnSwipe(swipeData);
-    }*/
+    }
 }
-/*
+
 public struct SwipeData
 {
     public Vector2 StartPosition;
     public Vector2 EndPosition;
     public SwipeDirection Direction;
 }
-*/
+
 public enum SwipeDirection
 {
     Up,

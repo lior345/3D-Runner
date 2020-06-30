@@ -802,7 +802,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8748688856612009363, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
 --- !u!1 &246760034
 GameObject:
@@ -2906,7 +2907,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869959646}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e8dab1d53fa35744abb1fe3aba30846, type: 3}
   m_Name: 
@@ -2944,6 +2945,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9609a1a5e40343a428828233e3b7c640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &869959654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869959646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76f204894f838a45bde018cefc740cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 5
+  RunSpeed: 3
+  replay: {fileID: 1785532}
+  anim: {fileID: 869959647}
 --- !u!1001 &880164154
 PrefabInstance:
   m_ObjectHideFlags: 0
