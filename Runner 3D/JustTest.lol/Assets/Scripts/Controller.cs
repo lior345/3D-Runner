@@ -78,6 +78,7 @@ private void Update()
         if (other.gameObject.CompareTag("Obstacle"))
         {
             alive = false;
+            Time.timeScale = 0;
             replay.SetActive(true);
         }
         else if (other.gameObject.CompareTag("Crystal"))
