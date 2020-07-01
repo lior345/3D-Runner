@@ -11,13 +11,11 @@ public class Controller : MonoBehaviour
 
     [SerializeField] float jumpForce;
     [SerializeField] float RunSpeed;
-
-    public bool alive= true;
-
+    
     public GameObject replay;//When failing- a replay option will appear
-    public Animator anim;
     public Transform cameraTransform;
     public TouchManager touchManager;
+    public bool alive = true;
 
     private void Start()
     {
@@ -29,14 +27,16 @@ private void Update()
         if (alive)
         {
             transform.Translate(0, 0, RunSpeed * Time.deltaTime*PlayerPrefs.GetFloat("Speed"));//forward movement
-            cameraTransform.position = new Vector3(0,3f,transform.position.z - 2.5f);//camera Movement
             transform.position = Vector3.Lerp(transform.position, new Vector3(nextPos.x,transform.position.y,transform.position.z), 5*Time.deltaTime);//gradual side movement
+            
+            cameraTransform.position = new Vector3(PlayerPrefs.GetInt("CameraFollow")*transform.position.x, 3f, transform.position.z - 2.5f);//camera Movement
+
             #region Movement Inputs
-            if (Input.GetKeyDown(KeyCode.D)||touchManager.swipeRight)
+            if (Input.GetKeyDown(KeyCode.D)||touchManager.swipeRight)//move right
             {
                 RightMove();
             }
-            if (Input.GetKeyDown(KeyCode.A) || touchManager.swipeLeft)
+            if (Input.GetKeyDown(KeyCode.A) || touchManager.swipeLeft)//move left
             {
                 LeftMove();
             }
@@ -50,7 +50,6 @@ private void Update()
             }
             #endregion
         }
-        else Time.timeScale = 0;
     }
     private void LeftMove()//Left Movement Check
     {
@@ -69,18 +68,34 @@ private void Update()
             nextLane = 1;
         }
         nextPos = new Vector3(nextLane, transform.position.y, transform.position.z);
-
     }
     private void OnCollisionEnter(Collision collision)//ground check
     {
         isgrounded = true;
     }
-    private void OnTriggerEnter(Collider other)//Obstacle check
+    private void OnTriggerEnter(Collider other)//Triggers Check- Obstacles / Collectables / finishline 
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
             alive = false;
             replay.SetActive(true);
+        }
+        else if (other.gameObject.CompareTag("Crystal"))
+        {
+            PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score") + 50);
+            Destroy(other.gameObject);
+        }
+
+        else if (other.gameObject.CompareTag("Coin"))
+        {
+            PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score") + 10);
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Finish"))
+        {
+            alive = false;
+            Time.timeScale = 0;
+            replay.gameObject.SetActive(true);
         }
     }
 }

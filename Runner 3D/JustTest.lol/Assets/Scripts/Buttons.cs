@@ -31,8 +31,16 @@ public class Buttons : MonoBehaviour
     {
         PlayerPrefs.SetFloat("Speed", 2f);
     }
-    public void somethingElse()
+    public void StillCamera()
     {
-
+        PlayerPrefs.SetInt("CameraFollow", 0);
+    }
+    public void FollowCamera()
+    {
+        PlayerPrefs.SetInt("CameraFollow", 1);
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

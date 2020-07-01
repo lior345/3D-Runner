@@ -6,9 +6,10 @@ using TMPro;
 
 public class score : MonoBehaviour
 {
-    public TextMeshProUGUI tmPro;
+    private TextMeshProUGUI tmPro;
         void Start()
     {
+        tmPro = GetComponent<TextMeshProUGUI>();
         PlayerPrefs.SetInt("score", 0);
     }
 
