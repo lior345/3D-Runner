@@ -5,31 +5,36 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     private float nextLane;
+    private float lerpSpeed = 5;
     private bool isgrounded = true;
     private Vector3 nextPos;
     private Rigidbody rb;
-
+    private float actualSpeed;//calculated by the pre-determined speed*speed multiplier from menu
+    
     [SerializeField] float jumpForce;
-    [SerializeField] float RunSpeed;
+    [SerializeField] float runSpeed;
     
     public GameObject replay;//When failing- a replay option will appear
     public Transform cameraTransform;
     public TouchManager touchManager;
     public bool alive = true;
+    public float speedMultiplier = 1;
+    public int doesCameraFollow = 0;
 
     private void Start()
     {
         nextLane=0;//starting in the middle
         rb = GetComponent<Rigidbody>();
+        actualSpeed = runSpeed;
     }
 private void Update()
     {
         if (alive)
         {
-            transform.Translate(0, 0, RunSpeed * Time.deltaTime*PlayerPrefs.GetFloat("Speed"));//forward movement
-            transform.position = Vector3.Lerp(transform.position, new Vector3(nextPos.x,transform.position.y,transform.position.z), 5*Time.deltaTime);//gradual side movement
+            transform.Translate(0, 0, actualSpeed * Time.deltaTime);//forward movement*speed Multipier from menu
+            transform.position = Vector3.Lerp(transform.position, new Vector3(nextPos.x,transform.position.y,transform.position.z), lerpSpeed * Time.deltaTime);//gradual side movement
             
-            cameraTransform.position = new Vector3(PlayerPrefs.GetInt("CameraFollow")*transform.position.x, 3f, transform.position.z - 2.5f);//camera Movement
+            cameraTransform.position = new Vector3(doesCameraFollow * transform.position.x, 3f, transform.position.z - 2.5f);//camera Movement
 
             #region Movement Inputs
             if (Input.GetKeyDown(KeyCode.D)||touchManager.swipeRight)//move right
@@ -50,6 +55,10 @@ private void Update()
             }
             #endregion
         }
+    }
+    public void SetSpeedMultiplier(float multiplier)
+    {
+        actualSpeed = runSpeed * multiplier;
     }
     private void LeftMove()//Left Movement Check
     {

@@ -5,6 +5,12 @@ using UnityEngine;
 public class Buttons : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public Controller controller;
+    public GameObject[] interferences;
+    public GameObject cam1;
+    public GameObject cam2;
+
+
     private void Start()
     {
         PlayerPrefs.SetFloat("Speed", 1f);
@@ -21,26 +27,51 @@ public class Buttons : MonoBehaviour
     }
     public void LowSpeed()
     {
-        PlayerPrefs.SetFloat("Speed", 1f);
+        controller.SetSpeedMultiplier(1f);
     }
     public void MediumSpeed()
     {
-        PlayerPrefs.SetFloat("Speed", 1.5f);
+        controller.SetSpeedMultiplier(1.5f);
     }
     public void HighSpeed()
     {
-        PlayerPrefs.SetFloat("Speed", 2f);
+        controller.SetSpeedMultiplier(2f);
     }
     public void StillCamera()
     {
-        PlayerPrefs.SetInt("CameraFollow", 0);
+        controller.doesCameraFollow = 0;
+        DisableSideView();
+
     }
     public void FollowCamera()
     {
-        PlayerPrefs.SetInt("CameraFollow", 1);
+        controller.doesCameraFollow = 1;
+        DisableSideView();
     }
     public void Quit()
     {
         Application.Quit();
+    }
+    public void SideCamera()
+    {
+        ActivateSideView();
+    }
+    public void ActivateSideView()
+    {
+        cam1.SetActive(false);
+        cam2.SetActive(true);
+        for (int i = 0; i < interferences.Length; i++)
+        {
+            interferences[i].SetActive(false);
+        }
+    }
+    public void DisableSideView()
+    {
+        cam2.SetActive(false);
+        cam1.SetActive(true);
+        for (int i = 0; i < interferences.Length; i++)
+        {
+            interferences[i].SetActive(true);
+        }
     }
 }
