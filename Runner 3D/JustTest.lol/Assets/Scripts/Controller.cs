@@ -28,7 +28,7 @@ private void Update()
     {
         if (alive)
         {
-            transform.Translate(0, 0, RunSpeed * Time.deltaTime);//forward movement
+            transform.Translate(0, 0, RunSpeed * Time.deltaTime*PlayerPrefs.GetFloat("Speed"));//forward movement
             cameraTransform.position = new Vector3(0,3f,transform.position.z - 2.5f);//camera Movement
             transform.position = Vector3.Lerp(transform.position, new Vector3(nextPos.x,transform.position.y,transform.position.z), 5*Time.deltaTime);//gradual side movement
             #region Movement Inputs
